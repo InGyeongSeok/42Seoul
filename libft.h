@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 08:58:03 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/15 10:50:52 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/15 12:54:53 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,12 @@ void	*ft_memset(void *ptr, int value, int num);
 void	ft_bzero(void *s, int n);
 void	*ft_memcpy(void	*dest, const void	*source, int num);
 void	*ft_memmove(void *dest, const void *src, int num);
+size_t	ft_strlcpy(char *dest, char *src, unsigned int size);
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
+int	ft_strncmp(char	*s1, char	*s2, unsigned int n);
+int	ft_toupper(int c);
+int	ft_tolower(int c);
+char	*ft_strchr(const char *str, int c);
+
+
 #endif

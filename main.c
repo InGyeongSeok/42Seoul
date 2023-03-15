@@ -6,21 +6,25 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:00:53 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/15 10:50:53 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/15 12:55:11 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-#include <string.h>
 
-int main () {
-   char dest[] = "oldstring";
-   const char src[]  = "newstring";
+int main()
+{
+    char s1[30] = "A Garden Diary";  // 크기가 30인 char형 배열을 선언하고 문자열 할당
 
-   printf("Before memmove dest = %s, src = %s\n", dest, src);
-   ft_memmove(dest, src, 9);
-   printf("After memmove dest = %s, src = %s\n", dest, src);
+    char *ptr = strchr(s1, 'a');     // 'a'로 시작하는 문자열 검색, 포인터 반환
 
-   return(0);
+    while (ptr != NULL)              // 검색된 문자열이 없을 때까지 반복
+    {
+        printf("%s\n", ptr);         // 검색된 문자열 출력
+        ptr = strchr(ptr + 1, 'a');  // 포인터에 1을 더하여 a 다음부터 검색
+    }
+
+    return 0;
 }
