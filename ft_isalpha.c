@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 08:39:10 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/15 09:48:14 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/19 10:03:37 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_isalpha(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (2);
+		return (1);
 	else if (c >= 'A' && c <= 'Z')
 		return (1);
 	else

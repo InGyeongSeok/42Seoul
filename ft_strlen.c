@@ -6,13 +6,13 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:38:10 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/15 09:59:48 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/19 10:22:48 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 

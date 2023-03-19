@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:14:55 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/15 15:24:06 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/19 15:39:57 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,15 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*s1_temp;
-	char	*s2_temp;
-	int		diff;
+	size_t	i;
 
-	s1_temp = (char *)s1;
-	s2_temp = (char *)s2;
-	while (n)
+	i = 0;
+	while (i < n)
 	{
-		diff = *s1_temp - *s2_temp;
-		if (diff != 0)
-			return (diff);
+		if (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i] != 0)
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 		else
-		{
-			s1_temp++;
-			s2_temp++;
-		}
+			i++;
 	}
 	return (0);
 }

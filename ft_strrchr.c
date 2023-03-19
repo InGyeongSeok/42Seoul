@@ -6,26 +6,26 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 12:56:41 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/15 15:10:54 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/19 15:18:39 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char	*str, int c)
+char	*ft_strrchr(const char	*s, int c)
 {
-	char	*str_temp;
-	char	*ptr;
+	int		i;
+	char	*last;
 
-	str_temp = (char *)str;
-	while (*str_temp)
+	i = 0;
+	last = 0;
+	if ((unsigned char)c == 0)
+		return (&((char *)s)[ft_strlen(s)]);
+	while (s[i])
 	{
-		ptr = ft_strchr(str_temp, c);
-		if (*str_temp + 1 == '\0')
-		{
-			return (ptr);
-		}
-		str_temp++;
+		if (s[i] == (unsigned char)c)
+			last = &((char *)s)[i];
+		i++;
 	}
-	return (0);
+	return (last);
 }

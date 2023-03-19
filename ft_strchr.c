@@ -6,22 +6,24 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 12:08:27 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/15 12:54:49 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/19 15:42:57 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*str_temp;
+	int	i;
 
-	str_temp = (char *)str;
-	while (str_temp)
+	i = 0;
+	while (s[i])
 	{
-		if (*str_temp == c)
-			return (str_temp);
-		str_temp++;
+		if (s[i] == (unsigned char)c)
+			return (&((char *)s)[i]);
+		i++;
 	}
+	if (s[i] == (unsigned char)c)
+		return (&((char *)s)[i]);
 	return (0);
 }

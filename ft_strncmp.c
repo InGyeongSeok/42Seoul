@@ -6,13 +6,15 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 11:38:55 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/15 12:58:57 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/19 12:56:36 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char	*s1, char	*s2, unsigned int n)
+#include "libft.h"
+
+int	ft_strncmp(const char	*s1, const char	*s2, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	if (n == 0)

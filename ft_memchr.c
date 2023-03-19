@@ -6,23 +6,22 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:49:27 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/15 15:16:08 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/19 15:35:37 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *src, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*src_temp;
+	size_t	i;
 
-	src_temp = (char *)src;
-	while (n)
+	i = 0;
+	while (i < n)
 	{
-		if (*src_temp == c)
-			return (src_temp);
-		n--;
-		src_temp++;
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return (&((unsigned char *)s)[i]);
+		i++;
 	}
 	return (0);
 }

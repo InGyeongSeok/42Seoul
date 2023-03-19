@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:00:53 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/15 15:50:33 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/19 10:22:20 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,7 @@
 
 int main()
 {
-	printf("%s", ft_strnstr("123456123", " 456", 5));
+	printf("%zu\n", ft_strlen("Test"));
+	printf("%ld\n", strlen("Test"));
 }
+
