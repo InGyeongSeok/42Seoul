@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 10:12:27 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/25 09:26:26 by inseok           ###   ########.fr       */
+/*   Created: 2023/03/22 20:57:29 by inseok            #+#    #+#             */
+/*   Updated: 2023/03/25 09:28:27 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void	*dst, const void *src, size_t n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	if ((char *)dst == (char *)src)
-		return (dst);
-	while (n)
-	{
-		((char *)dst)[i] = ((char *)src)[i];
-		n--;
-		i++;
-	}
-	return (dst);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }

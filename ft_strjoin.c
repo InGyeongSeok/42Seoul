@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 10:12:27 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/25 09:26:26 by inseok           ###   ########.fr       */
+/*   Created: 2023/03/18 13:40:35 by inseok            #+#    #+#             */
+/*   Updated: 2023/03/19 17:51:03 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void	*dst, const void *src, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	int		len;
+	char	*s3;
+	int		i;
 
 	i = 0;
-	if ((char *)dst == (char *)src)
-		return (dst);
-	while (n)
+	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
+	s3 = (char *)malloc(sizeof(char) * (len + 1));
+	if (!s3)
+		return (0);
+	while (*s1)
 	{
-		((char *)dst)[i] = ((char *)src)[i];
-		n--;
+		s3[i] = *s1;
 		i++;
+		s1++;
 	}
-	return (dst);
+	while (*s2)
+	{
+		s3[i] = *s2;
+		i++;
+		s2++;
+	}
+	s3[i] = '\0';
+	return (s3);
 }
+
+
