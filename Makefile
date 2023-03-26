@@ -3,6 +3,8 @@ OBJS = ${SRC:.c=.o}
 OBJS_B = ${SRC_B:.c=.o}
 CC = cc
 FLAGS = -Wall -Wextra -Werror
+ALL = mandatory
+bonus = for_bonus
 
 SRC =   ft_atoi.c		\
 		ft_bzero.c      \
@@ -53,6 +55,8 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rc $@ $(OBJS)
+	rm -rf $(BONUS)
+	touch $@
 
 %.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
@@ -65,6 +69,8 @@ fclean: clean
 
 bonus: $(OBJS) $(OBJS_B)
 	ar rc $(NAME) $(OBJS) $(OBJS_B)
+	rm -rf $(ALL)
+	touch $@
 
 re: fclean all
 
