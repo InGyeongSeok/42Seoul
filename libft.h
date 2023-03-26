@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 08:58:03 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/25 09:29:59 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/26 10:23:13 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 ////////////////////
+
+
 
 int	ft_isalnum(int c);
 int	ft_isalpha(int c);
@@ -61,5 +63,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+
 
 #endif

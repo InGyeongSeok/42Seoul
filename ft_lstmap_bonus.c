@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 14:45:41 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/25 13:05:37 by inseok           ###   ########.fr       */
+/*   Created: 2023/03/26 09:42:14 by inseok            #+#    #+#             */
+/*   Updated: 2023/03/26 09:52:14 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-int	ft_atoi(const char *str)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	plus;
-	int	num;
+	int		size;
+	t_list	*result;
+	t_list	*save;
 
-	plus = 1;
-	num = 0;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '-' || *str == '+')
+	save = lst;
+	size = 0;
+	while (save)
 	{
-		if (*str == '-')
-			plus = 0;
-		str++;
+		size++;
 	}
-	while (*str >= '0' && *str <= '9')
+	result = (t_list *)malloc(sizeof(t_list) * size);
+	if (!result)
+		return (0);
+	while (lst)
 	{
-		num = num * 10 - (*str - '0');
-		str++;
+		result->content = f(lst->content);
+		result = result->next;
+		lst = lst->next;
+		del(lst->content);
 	}
-	if (plus)
-		num *= -1;
-	return (num);
+	return (result);
 }

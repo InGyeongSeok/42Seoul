@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 08:59:52 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/25 09:17:00 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/25 12:48:30 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,28 +47,25 @@ char	*ft_split_strdup(const char *s, char c)
 
 	count = 0;
 	i = 0;
-	str = NULL;
 	while (s[i] != c && s[i])
 	{
 		count++;
 		i++;
 	}
-	if (count == 0)
-		return (NULL);
 	str = (char *)malloc(sizeof(char) * (count + 1));
 	if (!str)
-		return (NULL);
+		return (0);
 	i = 0;
 	while (i < count)
 	{
 		str[i] = s[i];
 		i++;
 	}
-	str[i] = '\0';
+	str[i] = 0;
 	return (str);
 }
 
-char	**ft_freeall(char **list)
+void	ft_free(char **list)
 {
 	size_t	j;
 
@@ -79,7 +76,6 @@ char	**ft_freeall(char **list)
 		j++;
 	}
 	free(list);
-	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -89,17 +85,20 @@ char	**ft_split(char const *s, char c)
 	char	**result;
 
 	result = (char **)malloc(sizeof(char *) * (word_count((char *)s, c) + 1));
-	if (result == NULL)
+	if (!result)
 		return (0);
 	i = 0;
 	index = 0;
 	while (index < word_count((char *)s, c))
 	{
 		while (s[i] == c && s[i])
-		{
 			i++;
-		}
 		result[index] = ft_split_strdup(&s[i], c);
+		if (!result[index])
+		{
+			ft_free(result);
+			return (NULL);
+		}
 		i += ft_strlen((const char *)(result[index]));
 		index++;
 	}

@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 14:45:41 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/25 13:05:37 by inseok           ###   ########.fr       */
+/*   Created: 2023/03/24 11:58:26 by inseok            #+#    #+#             */
+/*   Updated: 2023/03/26 09:41:43 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-int	ft_atoi(const char *str)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int	plus;
-	int	num;
+	t_list	*save;
 
-	plus = 1;
-	num = 0;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '-' || *str == '+')
+	while (*lst)
 	{
-		if (*str == '-')
-			plus = 0;
-		str++;
+		save = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = save;
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		num = num * 10 - (*str - '0');
-		str++;
-	}
-	if (plus)
-		num *= -1;
-	return (num);
 }

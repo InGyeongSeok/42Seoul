@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 14:45:41 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/25 13:05:37 by inseok           ###   ########.fr       */
+/*   Created: 2023/03/23 19:52:33 by inseok            #+#    #+#             */
+/*   Updated: 2023/03/26 09:41:40 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-int	ft_atoi(const char *str)
+int	ft_lstsize(t_list *lst)
 {
-	int	plus;
-	int	num;
+	int	size;
 
-	plus = 1;
-	num = 0;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '-' || *str == '+')
+	size = 0;
+	while (lst)
 	{
-		if (*str == '-')
-			plus = 0;
-		str++;
+		lst = lst->next;
+		size++;
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		num = num * 10 - (*str - '0');
-		str++;
-	}
-	if (plus)
-		num *= -1;
-	return (num);
+	return (size);
 }

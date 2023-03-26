@@ -6,11 +6,22 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 19:00:44 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/19 22:18:52 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/26 09:24:12 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+char	*makeone(void)
+{
+	char	*result;
+
+	result = (char *)malloc(sizeof(char) * 1);
+	if (!result)
+		return (0);
+	result[0] = '\0';
+	return (result);
+}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -21,8 +32,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if ((*s1 == '\0' && *set == '\0') || *s1 == '\0')
 	{
-		result = (char *)malloc(sizeof(char) * 1);
-		result[0] = '\0';
+		result = makeone();
 		return (result);
 	}
 	end = ft_strlen(s1);

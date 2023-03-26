@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 14:45:41 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/25 13:05:37 by inseok           ###   ########.fr       */
+/*   Created: 2023/03/23 19:56:23 by inseok            #+#    #+#             */
+/*   Updated: 2023/03/26 09:36:29 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-int	ft_atoi(const char *str)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	plus;
-	int	num;
-
-	plus = 1;
-	num = 0;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '-' || *str == '+')
+	if (lst == 0)
+		return (0);
+	while (lst->next)
 	{
-		if (*str == '-')
-			plus = 0;
-		str++;
+		lst = lst->next;
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		num = num * 10 - (*str - '0');
-		str++;
-	}
-	if (plus)
-		num *= -1;
-	return (num);
+	return (lst);
 }

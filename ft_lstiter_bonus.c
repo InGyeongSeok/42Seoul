@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 09:00:53 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/19 10:22:20 by inseok           ###   ########.fr       */
+/*   Created: 2023/03/26 09:37:34 by inseok            #+#    #+#             */
+/*   Updated: 2023/03/26 09:41:55 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include "libft.h"
+#include "libft_bonus.h"
 
-int main()
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	printf("%zu\n", ft_strlen("Test"));
-	printf("%ld\n", strlen("Test"));
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }
-
