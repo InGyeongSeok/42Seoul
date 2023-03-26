@@ -63,8 +63,8 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-bonus: $(OBJS_B)
-	ar r $(OBJS_B)
+bonus: $(OBJS) $(OBJS_B)
+	ar rc $(NAME) $(OBJS) $(OBJS_B)
 
 re: fclean all
 
