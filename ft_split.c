@@ -6,13 +6,13 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 08:59:52 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/25 12:48:30 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/29 23:18:52 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	word_count(char *str, char c)
+static int	word_count(char *str, char c)
 {
 	int	i;
 	int	count;
@@ -39,7 +39,7 @@ int	word_count(char *str, char c)
 	return (count);
 }
 
-char	*ft_split_strdup(const char *s, char c)
+static char	*ft_split_strdup(const char *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -65,7 +65,7 @@ char	*ft_split_strdup(const char *s, char c)
 	return (str);
 }
 
-void	ft_free(char **list)
+static void	ft_free(char **list)
 {
 	size_t	j;
 

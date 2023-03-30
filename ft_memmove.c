@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 10:34:38 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/19 12:38:31 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/30 00:55:39 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	i = 0;
 	if (!dst && !src)
-		return (dst);
+		return (0);
 	if (dst < src)
 	{
 		while (i < len)
@@ -31,10 +31,10 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		while (i < len)
 		{
-			((unsigned char *)dst)[len - 1 - i]
-				= ((unsigned char *)src)[len - 1 - i];
+			((unsigned char *)dst)[len - 1 - i] = ((unsigned char *)src)[len - 1
+				- i];
 			i++;
 		}
 	}
-	return ((unsigned char *)dst);
+	return (dst);
 }

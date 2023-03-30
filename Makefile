@@ -3,8 +3,6 @@ OBJS = ${SRC:.c=.o}
 OBJS_B = ${SRC_B:.c=.o}
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-ALL = mandatory
-bonus = for_bonus
 
 SRC =   ft_atoi.c		\
 		ft_bzero.c      \
@@ -41,22 +39,22 @@ SRC =   ft_atoi.c		\
 		ft_putendl_fd.c	\
 		ft_putnbr_fd.c
 
-SRC_B = ft_lstnew_bonus.c\
-		ft_lstadd_front_bonus.c\
-		ft_lstlast_bonus.c\
-		ft_lstsize_bonus.c\
-		ft_lstadd_back_bonus.c\
-		ft_lstdelone_bonus.c	\
-		ft_lstclear_bonus.c	\
-		ft_lstiter_bonus.c	\
-		ft_lstmap_bonus.c
+SRC_B = ft_lstnew.c\
+		ft_lstadd_front.c\
+		ft_lstlast.c\
+		ft_lstsize.c\
+		ft_lstadd_back.c\
+		ft_lstdelone.c	\
+		ft_lstclear.c	\
+		ft_lstiter.c	\
+		ft_lstmap.c
+
+OBJ = $(OBJS)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rc $@ $(OBJS)
-	rm -rf $(BONUS)
-	touch $@
+$(NAME): $(OBJ)
+	ar rc $@ $(OBJ)
 
 %.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
@@ -67,10 +65,9 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-bonus: $(OBJS) $(OBJS_B)
-	ar rc $(NAME) $(OBJS) $(OBJS_B)
-	rm -rf $(ALL)
-	touch $@
+bonus:
+	make OBJ='$(OBJS) $(OBJS_B)' all
+
 
 re: fclean all
 

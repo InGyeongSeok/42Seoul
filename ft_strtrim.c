@@ -6,13 +6,13 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 19:00:44 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/26 09:24:12 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/29 23:18:52 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*makeone(void)
+static char	*makeone(void)
 {
 	char	*result;
 

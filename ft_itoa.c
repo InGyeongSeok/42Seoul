@@ -6,13 +6,13 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:38:34 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/25 09:18:18 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/30 08:43:55 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	num_count(int nbr)
+static int	num_count(int nbr)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ int	num_count(int nbr)
 	return (i);
 }
 
-char	*make_arr(int num, int nbr)
+static char	*make_arr(int num, int nbr)
 {
 	char	*arr;
 
@@ -35,19 +35,19 @@ char	*make_arr(int num, int nbr)
 		if (!arr)
 			return (0);
 		arr[0] = '-';
-		arr[num + 1] = 0;
+		arr[num + 1] = '\0';
 	}
 	else
 	{
 		arr = (char *)malloc((num + 1) * sizeof(char));
 		if (!arr)
 			return (0);
-		arr[num] = 0;
+		arr[num] = '\0';
 	}
 	return (arr);
 }
 
-void	ft_renbr(long long nbr, char **arr)
+static void	ft_renbr(long long nbr, char **arr)
 {
 	if (nbr < 10)
 	{
@@ -69,7 +69,7 @@ char	*iszero(void)
 	if (!arr)
 		return (0);
 	arr[0] = '0';
-	arr[1] = 0;
+	arr[1] = '\0';
 	return (arr);
 }
 
