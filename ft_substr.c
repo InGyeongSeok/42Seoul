@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:41:13 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/21 01:41:07 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/31 14:32:19 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	if (start >= ft_strlen(s))
 		len = 0;
 	else if (start + len > ft_strlen(s))

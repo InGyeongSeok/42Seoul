@@ -6,13 +6,13 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 11:38:55 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/30 03:15:12 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/31 15:41:16 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char	*s1, const char	*s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 

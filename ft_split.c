@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 08:59:52 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/29 23:18:52 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/31 15:45:46 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static char	*ft_split_strdup(const char *s, char c)
 	return (str);
 }
 
-static void	ft_free(char **list)
+static	char	**ft_free(char **list)
 {
 	size_t	j;
 
@@ -76,6 +76,7 @@ static void	ft_free(char **list)
 		j++;
 	}
 	free(list);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -84,6 +85,8 @@ char	**ft_split(char const *s, char c)
 	int		index;
 	char	**result;
 
+	if (!s)
+		return (0);
 	result = (char **)malloc(sizeof(char *) * (word_count((char *)s, c) + 1));
 	if (!result)
 		return (0);
@@ -96,8 +99,7 @@ char	**ft_split(char const *s, char c)
 		result[index] = ft_split_strdup(&s[i], c);
 		if (!result[index])
 		{
-			ft_free(result);
-			return (NULL);
+			return (ft_free(result));
 		}
 		i += ft_strlen((const char *)(result[index]));
 		index++;

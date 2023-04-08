@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 19:00:44 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/29 23:18:52 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/31 16:25:39 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*result;
 	int		i;
 
+	if (!s1 || !set)
+		return (0);
 	if ((*s1 == '\0' && *set == '\0') || *s1 == '\0')
-	{
-		result = makeone();
-		return (result);
-	}
+		return (makeone());
 	end = ft_strlen(s1);
 	start = 0;
 	i = 0;

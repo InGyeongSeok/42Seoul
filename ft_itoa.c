@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:38:34 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/30 08:43:55 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/31 16:16:00 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	ft_renbr(long long nbr, char **arr)
 	}
 }
 
-char	*iszero(void)
+static char	*iszero(void)
 {
 	char	*arr;
 

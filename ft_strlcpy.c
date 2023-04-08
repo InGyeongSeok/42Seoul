@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 11:14:56 by inseok            #+#    #+#             */
-/*   Updated: 2023/03/19 12:53:55 by inseok           ###   ########.fr       */
+/*   Updated: 2023/03/31 15:37:20 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 	size = ft_strlen(src);
 	i = 0;
-	if (!dst || !src)
-		return (0);
 	if (dstsize == 0)
 		return (size);
 	while (src[i] != '\0' && i + 1 < dstsize)
