@@ -1,25 +1,39 @@
 #include "get_next_line.h"
-
 #include <stdio.h>
+#include <fcntl.h>
 
-# include <fcntl.h>
-
-int main()
+int	main(void)
 {
-	int fd = open("only_nl.txt", O_RDONLY);
-	char *line;
+	char	*temp;
+	int		fd;
 
-	line = get_next_line(fd);
-	printf("answer: %send\n\n\n\n\n", line);
-	line = get_next_line(fd);
-	printf("answer: %send\n\n", line);
-	// line = get_next_line(fd);
-	// printf("%s\n\n", line);
-	// line = get_next_line(fd);
-	// printf("%s\n\n", line);
-	// line = get_next_line(fd);
-	// printf("%s\n\n", line);
+	fd = open("test.txt", O_RDONLY);
+	temp = get_next_line(fd);
+	while (temp)
+	{
+		printf("%s", temp);
+		free(temp);
+		//printf("test");
 
-
-
+		temp = get_next_line(fd);
+	}
+	printf("%s", temp);
+	//free(temp);
+	close(fd);
+	return (0);
+	system("leaks a.out");
 }
+
+// int main()
+// {
+// 	char *s;
+// 	int fd;
+
+// 	fd = open("test.txt", O_RDONLY);
+// 	s = get_next_line(fd);
+// 	printf("answer:%s|", s);
+// 	// s = get_next_line(fd);
+// 	// printf("answer:%s|", s);
+// 	// s = get_next_line(fd);
+// 	// printf("answer:%s|", s);
+// }
