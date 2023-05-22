@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:58:43 by inseok            #+#    #+#             */
-/*   Updated: 2023/05/22 21:33:31 by inseok           ###   ########.fr       */
+/*   Updated: 2023/05/22 22:00:19 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 # endif
 
 char *gnl_split(char **line, int i);
-char * final_line(char **line, int read_size);
 char * get_next_line(int fd);
 
 int gnl_strlen(const char *s);
