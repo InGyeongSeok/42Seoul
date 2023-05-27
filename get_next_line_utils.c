@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:58:21 by inseok            #+#    #+#             */
-/*   Updated: 2023/05/22 21:47:36 by inseok           ###   ########.fr       */
+/*   Updated: 2023/05/27 14:27:20 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*gnl_strjoin(char const *s1, char const *s2, int s2_len)
 		s3[i++] = *s1++;
 	while (j < s2_len)
 		s3[i + j++] = *s2++;
-	s3[i+j] = '\0';
+	s3[i + j] = '\0';
 	return (s3);
 }
 
@@ -89,9 +89,9 @@ char	*gnl_strndup(const char *s, int n)
 
 char	*gnl_split(char **line, int i)
 {
-	char *result;
-	char *save;
-	int line_len;
+	char	*result;
+	char	*save;
+	int		line_len;
 
 	line_len = gnl_strlen(*line);
 	result = gnl_strndup(*line, i + 1);

@@ -6,46 +6,52 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:57:47 by inseok            #+#    #+#             */
-/*   Updated: 2023/05/22 22:19:10 by inseok           ###   ########.fr       */
+/*   Updated: 2023/05/27 14:27:08 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+char	*free_line(char **line)
 {
-	char		*read_buffer;
-	int			read_size;
-	static char	*line;
-	char		*temp;
-	char		*result;
+	free(*line);
+	*line = NULL;
+	return (NULL);
+}
 
-	if (fd < 0 || BUFFER_SIZE < 1)
-		return (0);
+char	*read_buffer(char **line, int fd)
+{
+	char	*read_buffer;
+	int		read_size;
+	char	*temp;
+
 	read_buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE);
 	if (!read_buffer)
-	{
-		free(line);
-		line = NULL;
-		return (NULL);
-	}
-	while (gnl_strchr(line) < 0)
+		return (free_line(line));
+	while (gnl_strchr(*line) < 0)
 	{
 		read_size = read(fd, read_buffer, BUFFER_SIZE);
 		if (read_size <= 0)
 			break ;
-		temp = gnl_strjoin(line, read_buffer, read_size);
-		free(line);
-		line = temp;
+		temp = gnl_strjoin(*line, read_buffer, read_size);
+		free(*line);
+		*line = temp;
 	}
 	free(read_buffer);
-	if(read_size < 0)
-	{
-		free(line);
-		line = NULL;
+	if (read_size < 0)
+		return (free_line(line));
+	return (*line);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*line;
+	char		*result;
+
+	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	}
-	if(gnl_strchr(line) < 0)
+	line = read_buffer(&line, fd);
+	if (gnl_strchr(line) < 0)
 	{
 		result = line;
 		line = NULL;
@@ -53,10 +59,6 @@ char	*get_next_line(int fd)
 	}
 	result = gnl_split(&line, gnl_strchr(line));
 	if (!result)
-	{
-		free(line);
-		line = NULL;
-		return (NULL);
-	}
+		return (free_line(&line));
 	return (result);
 }
