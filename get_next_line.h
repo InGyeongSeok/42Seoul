@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:58:43 by inseok            #+#    #+#             */
-/*   Updated: 2023/05/27 18:51:42 by inseok           ###   ########.fr       */
+/*   Updated: 2023/05/27 20:26:39 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ typedef struct s_fd_list
 	int					fd;
 	char				*line;
 	struct s_fd_list	*next;
+	struct s_fd_list	*prev;
 }						t_fd_list;
 
 char					*get_next_line(int fd);
-char					*free_line(char **line);
-char					*read_buffer(char **line, int fd);
+t_fd_list				*get_fd_node(int fd, t_fd_list **fd_list);
+void					delete_node(t_fd_list *fd_node, t_fd_list **fd_list);
+int						read_buffer(t_fd_list *fd_node, t_fd_list **fd_list);
 
 char					*gnl_split(char **line, int i);
 int						gnl_strlen(const char *s);
