@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:57:47 by inseok            #+#    #+#             */
-/*   Updated: 2023/05/27 20:43:38 by inseok           ###   ########.fr       */
+/*   Updated: 2023/05/27 21:04:51 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,40 +55,28 @@ int	read_buffer(t_fd_list *fd_node, t_fd_list **fd_list)
 {
 	char	*read_buffer;
 	int		read_size;
-	int		line_index;
 	char	*temp;
 
-	line_index = 0;
-	read_size = 0;
+	temp = fd_node->line;
 	read_buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE);
-	if (!read_buffer)
+	if (read_buffer)
 	{
-		delete_node(fd_node, fd_list);
-		return (0);
-	}
-	while (gnl_strchr(fd_node->line + line_index) < 0)
-	{
-		line_index += read_size;
-		read_size = read(fd_node->fd, read_buffer, BUFFER_SIZE);
-		if (read_size <= 0)
-			break ;
-		temp = gnl_strjoin(fd_node->line, read_buffer, read_size);
-		if (!temp)
+		while (gnl_strchr(temp) < 0)
 		{
-			free(read_buffer);
-			delete_node(fd_node, fd_list);
-			return (0);
+			read_size = read(fd_node->fd, read_buffer, BUFFER_SIZE);
+			if (read_size <= 0)
+				break ;
+			temp = gnl_strjoin(fd_node->line, read_buffer, read_size);
+			if (!temp)
+				break ;
+			free(fd_node->line);
+			fd_node->line = temp;
 		}
-		free(fd_node->line);
-		fd_node->line = temp;
+		free(read_buffer);
 	}
-	free(read_buffer);
-	if (read_size < 0)
-	{
+	if (!read_buffer || read_size < 0 || !temp)
 		delete_node(fd_node, fd_list);
-		return (0);
-	}
-	return (1);
+	return (!(!read_buffer || read_size < 0 || !temp));
 }
 
 char	*get_next_line(int fd)
@@ -105,16 +93,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	new_line_index = gnl_strchr(fd_node->line);
 	if (new_line_index < 0)
-	{
 		result = gnl_strndup(fd_node->line, gnl_strlen(fd_node->line));
+	else
+		result = gnl_split(&(fd_node->line), new_line_index);
+	if (new_line_index < 0 || !result)
 		delete_node(fd_node, &fd_list);
-		return (result);
-	}
-	result = gnl_split(&(fd_node->line), new_line_index);
-	if (!result)
-	{
-		delete_node(fd_node, &fd_list);
-		return (NULL);
-	}
 	return (result);
 }
