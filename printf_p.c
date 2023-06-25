@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 11:12:40 by inseok            #+#    #+#             */
-/*   Updated: 2023/06/25 18:22:51 by inseok           ###   ########.fr       */
+/*   Updated: 2023/06/25 19:34:21 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	printf_p(va_list *ap)
 		if (address == 0)
 			break ;
 	}
-	write(1, "0x", 2);
+	if (write(1, "0x", 2) == -1)
+		return (-1);
 	return (write(1, mem + i, 16 - i) + 2);
 }

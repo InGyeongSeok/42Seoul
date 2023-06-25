@@ -6,7 +6,7 @@
 #    By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/25 12:55:28 by inseok            #+#    #+#              #
-#    Updated: 2023/06/25 18:46:27 by inseok           ###   ########.fr        #
+#    Updated: 2023/06/25 19:06:54 by inseok           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,21 +25,16 @@ SRC =	ft_printf.c \
 		printf_utils.c\
 		libft/ft_strlen.c
 
-
-
-
-OBJ = $(OBJS)
-
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rc $@ $(OBJ)
+$(NAME): $(OBJS)
+	ar rc $@ $(OBJS)
 
 %.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(NAME)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
