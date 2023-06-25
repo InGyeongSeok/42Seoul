@@ -6,7 +6,7 @@
 #    By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/25 12:55:28 by inseok            #+#    #+#              #
-#    Updated: 2023/06/25 18:24:58 by inseok           ###   ########.fr        #
+#    Updated: 2023/06/25 18:46:27 by inseok           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ SRC =	ft_printf.c \
 		printf_d.c  \
 		printf_u.c  \
 		printf_x.c  \
-		printf_utils.c
+		printf_utils.c\
+		libft/ft_strlen.c
+
 
 
 

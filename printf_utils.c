@@ -6,21 +6,11 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 11:05:41 by inseok            #+#    #+#             */
-/*   Updated: 2023/06/25 18:00:35 by inseok           ###   ########.fr       */
+/*   Updated: 2023/06/25 18:41:56 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 static int	itoa_len(long n)
 {
