@@ -6,12 +6,11 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 09:04:05 by inseok            #+#    #+#             */
-/*   Updated: 2023/06/25 14:57:33 by inseok           ###   ########.fr       */
+/*   Updated: 2023/06/25 18:16:40 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	handleSpecifier(const char format, va_list* ap)
 {
@@ -49,6 +48,10 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 			count += write(1, &format[i], 1);
+			// if(write(1, &format[i], 1) == -1)
+			// 	return (-1);
+			// else
+			// 	count++;
 		i++;
 	}
 	va_end(ap);

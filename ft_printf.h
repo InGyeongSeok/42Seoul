@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 09:06:14 by inseok            #+#    #+#             */
-/*   Updated: 2023/06/25 14:51:50 by inseok           ###   ########.fr       */
+/*   Updated: 2023/06/25 17:08:18 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int	printf_x(va_list *ap, const char format);
 
 
 size_t	ft_strlen(const char *str);
-char	*ft_itoa(int n);
-void	*ft_memset(void *b, int c, size_t len);
+char *printf_itoa(long n);
 
 
 #endif

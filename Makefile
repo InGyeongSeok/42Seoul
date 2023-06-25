@@ -6,7 +6,7 @@
 #    By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/25 12:55:28 by inseok            #+#    #+#              #
-#    Updated: 2023/06/25 14:58:34 by inseok           ###   ########.fr        #
+#    Updated: 2023/06/25 17:52:27 by inseok           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 
 SRC =	ft_printf.c \
-		ft_itoa.c   \
 		printf_c.c  \
 		printf_s.c  \
 		printf_p.c  \

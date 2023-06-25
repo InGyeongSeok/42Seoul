@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 11:12:40 by inseok            #+#    #+#             */
-/*   Updated: 2023/06/25 14:37:21 by inseok           ###   ########.fr       */
+/*   Updated: 2023/06/25 16:41:20 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	printf_p(va_list *ap)
 	unsigned long long	temp;
 	int					i;
 
-	ft_memset(mem, 0, sizeof(mem));
 	address = (unsigned long long)va_arg(*ap, void *);
 	i = 16;
 	hex = "0123456789abcdef";

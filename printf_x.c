@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 14:42:49 by inseok            #+#    #+#             */
-/*   Updated: 2023/06/25 15:00:44 by inseok           ###   ########.fr       */
+/*   Updated: 2023/06/25 16:42:07 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	printf_x(va_list *ap, const char format)
 	unsigned int		temp;
 	int					i;
 
-	ft_memset(mem, 0, sizeof(mem));
 	address = (unsigned int)va_arg(*ap, int);
 	i = 8;
 	hex = "0123456789abcdef";
