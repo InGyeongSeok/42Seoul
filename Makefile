@@ -6,16 +6,17 @@
 #    By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/25 12:55:28 by inseok            #+#    #+#              #
-#    Updated: 2023/06/25 19:06:54 by inseok           ###   ########.fr        #
+#    Updated: 2023/06/25 21:49:50 by inseok           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-OBJS = ${SRC:.c=.o}
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
+NAME = libftprintf.a
+OBJS = ${SRCS:.c=.o}
 
-SRC =	ft_printf.c \
+
+SRCS =	ft_printf.c \
 		printf_c.c  \
 		printf_s.c  \
 		printf_p.c  \
@@ -28,10 +29,10 @@ SRC =	ft_printf.c \
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rc $@ $(OBJS)
+	ar rcs $@ $(OBJS)
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

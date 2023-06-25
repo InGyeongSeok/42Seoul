@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 10:50:36 by inseok            #+#    #+#             */
-/*   Updated: 2023/06/25 19:35:12 by inseok           ###   ########.fr       */
+/*   Updated: 2023/06/25 21:45:28 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,7 @@
 #include <unistd.h>
 #include <limits.h>
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 int	main(void)
 {
