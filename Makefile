@@ -6,7 +6,7 @@
 #    By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/25 12:55:28 by inseok            #+#    #+#              #
-#    Updated: 2023/07/13 16:26:51 by inseok           ###   ########.fr        #
+#    Updated: 2023/07/25 16:14:47 by inseok           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,8 @@ NAME = libftprintf.a
 OBJS = ${SRCS:.c=.o}
 
 
-SRCS =	main.c \
-		gnl/get_next_line_utils.c \
+SRCS =	gnl/get_next_line_utils.c \
 		gnl/get_next_line.c\
-		map.ber
 
 all: $(NAME)
 
