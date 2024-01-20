@@ -6,7 +6,7 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 12:45:25 by inseok            #+#    #+#             */
-/*   Updated: 2023/06/25 20:00:21 by inseok           ###   ########.fr       */
+/*   Updated: 2023/06/26 08:55:47 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int	printf_d(va_list *ap)
 	s = printf_itoa(n);
 	if (!s)
 		return (-1);
-	count = write(1, s, ft_strlen(s));
+	count = 0;
+	while (s[count])
+		count++;
+	count = write(1, s, count);
 	free(s);
 	return (count);
 }

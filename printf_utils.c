@@ -6,13 +6,13 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 11:05:41 by inseok            #+#    #+#             */
-/*   Updated: 2023/06/25 19:57:39 by inseok           ###   ########.fr       */
+/*   Updated: 2023/06/26 08:56:46 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	itoa_len(long n)
+int	itoa_len(long n)
 {
 	int	len;
 

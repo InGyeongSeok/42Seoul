@@ -6,13 +6,13 @@
 /*   By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 09:04:05 by inseok            #+#    #+#             */
-/*   Updated: 2023/06/25 20:16:15 by inseok           ###   ########.fr       */
+/*   Updated: 2023/06/26 09:00:57 by inseok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	handleSpecifier(const char format, va_list *ap)
+int	handle_specifier(const char format, va_list *ap)
 {
 	int	count;
 
@@ -39,22 +39,22 @@ int	handleSpecifier(const char format, va_list *ap)
 
 int	ft_printf(const char *format, ...)
 {
-	int	i;
-	int	count;
-	int	temp;
+	int		i;
+	int		count;
+	int		temp;
+	va_list	ap;
 
-	i = 0;                //index
-	count = 0;            //출력한 글자 수 반환
-	va_list ap;           //가변 인자 목록을 ap에 담을 것이다.
-	va_start(ap, format); //dcs라는 문자열의 개수 만큼 ap가 이동할 것.
+	i = 0;
+	count = 0;
+	va_start(ap, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
-			temp = handleSpecifier(format[++i], &ap);
+			temp = handle_specifier(format[++i], &ap);
 		else
 			temp = write(1, &format[i], 1);
 		if (temp == -1)
-				return (-1);
+			return (-1);
 		else
 			count += temp;
 		i++;

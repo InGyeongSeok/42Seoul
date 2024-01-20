@@ -6,7 +6,7 @@
 #    By: inseok <inseok@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/25 12:55:28 by inseok            #+#    #+#              #
-#    Updated: 2023/06/25 21:49:50 by inseok           ###   ########.fr        #
+#    Updated: 2023/06/26 08:50:19 by inseok           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,7 @@ SRCS =	ft_printf.c \
 		printf_d.c  \
 		printf_u.c  \
 		printf_x.c  \
-		printf_utils.c\
-		libft/ft_strlen.c
+		printf_utils.c
 
 all: $(NAME)
 
